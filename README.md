@@ -1,25 +1,52 @@
-# NSModTemplate
-A template repository for Northstar mods with a ~~mostly~~ pre-configured github action for publishing to Thunderstore
+# Default Loadout Replacer
+A mod meant to replace the default pilot/titan loadouts used when joining/creating a server without masterserver auth.
 
 ## Usage
-<ol>
-<li> Click the <code>Use this template</code> button on the top right of the repo's landing page (<a href="https://github.com/GreenTF/NSModTemplate">here</a>)</li>
-<li> Give the new repo a name and make sure it's set to <code>public</code></li>
-<li> <details><summary> In the <code>settings</code> tab, under <code>actions</code> -> <code>general</code>, set <code>Actions permissions</code> to <code>Allow all actions and reusable workflows</code></summary>
-<img src="https://user-images.githubusercontent.com/4367791/180306016-04bfc321-b60f-4ed0-ac0c-5a6065036e2c.png" />
-</details></li>
-<li> <details><summary> Also in <code>settings</code>, under <code>secrets</code> ->  <code>actions</code>, add your Thunderstore token as a secret named <code>TS_KEY</code> (Steps for getting a token can be found <a href="https://github.com/GreenTF/upload-thunderstore-package/wiki">here</a>)</summary>
-  <img src="https://user-images.githubusercontent.com/4367791/180306285-60dd51ec-0448-44af-aa92-682599c6c0f4.png" />
-  <img src="https://user-images.githubusercontent.com/4367791/180306391-a217f309-e875-4e74-8270-8155c60dbcdc.png" />
-</details>
-</li>
-  <li> <details><summary>Edit <code>.github/workflows/publish.yml</code> ~line 43 to add a description for your mod </summary>
-    <img src="https://user-images.githubusercontent.com/4367791/180337843-5213db45-850b-4759-98c5-9ad47cbab7ba.png" />
-    </details>
-  </li>
+Loadouts are replaced by providing the values for loadout properties via ConVars. You can get these loadout properties by re-selecting them in-game and reading the game console to find out what that property is and what it changed to.
 
-<li> Update this README and <code>icon.png</code> as they will be used by Thunderstore as well </li>
-<li> Write your mod! (HINT: Find the docs <a href="https://r2northstar.readthedocs.io/en/latest/guides/gettingstarted.html">here</a>) </li>
-</ol>
+### Pilot loadouts
+There are 2 ConVars for each pilot loadout, one for properties for the pilot theirself, and another for the pilot's weapons.
 
+#### Examples
+```
+dlr_loadout_10_pilot "Custom Pilot 10,geist,race_human_male,execution_neck_snap,pas_fast_health_regen,pas_wallhang,0,0"
+dlr_loadout_10_weapons "0,mp_weapon_smr, , , , ,mp_weapon_autopistol, , , ,mp_weapon_defender, , , ,mp_weapon_grenade_emp,0,0,0"
+```
 
+#### ConVar Values
+The properties for the `_pilot` ConVars are layed out as follows:
+
+`name, race, execution, passive1, passive2, passive3, camoIndex`
+
+This ConVar can't have spaces for the properties.
+
+The properties for the `_weapons` ConVars are layed out as follows:
+
+`primary, primaryAttachment, primaryMod1, primaryMod2, primaryMod3, secondary, secondaryMod1, secondaryMod2, secondaryMod3, weapon3, weapon3Mod1, weapon3Mod2, weapon3Mod3, ordnance, primaryCamoIndex, secondaryCamoIndex, weapon3CamoIndex`
+
+Note that the weapon mod properties can be just a space if not desired for a weapon.
+
+#### Boosts
+Boosts are not covered by this mod, since there is no good way to tell if the boost a loadout has is the default/changed from the default, as far as I know.
+
+### Titan loadouts
+The loadouts of each titan are also covered by this mod. The titan loadout properties are all in 1 ConVar.
+
+#### Example
+```
+dlr_loadout_scorch "pas_enhanced_titan_ai,pas_scorch_weapon,pas_bubbleshield,execution_random_1,0,0,0,0,0,0,0,0,0,0"
+```
+
+#### ConVar Values
+The properties for the titan loadouts are layed out as follows:
+
+`passive1, passive2, passive3, titanExecution, camoIndex, skinIndex, decalIndex, primaryCamoIndex, isPrime, primeCamoIndex, primeSkinIndex, primeDecalIndex, showArmBadge`
+
+This ConVar can't have spaces for the properties.
+
+#### Monarch Upgrades
+Monarch upgrades are in a separate ConVar, `dlr_loadout_monarch_upgrades`. For example:
+
+`dlr_loadout_monarch_upgrades "pas_vanguard_core1,pas_vanguard_core4,pas_vanguard_core7"`
+
+The properties are: `passive4, passive5, passive6`
