@@ -1,7 +1,7 @@
 {
    "Name": "LordVGames.DefaultLoadoutReplacer",
    "Description": "Replaces the default loadouts with user-defined ones through cvars. Used to replace the default loadouts when joining a server w/o auth.",
-   "DownloadLink": "https://northstar.thunderstore.io/package/download/LordVGames/Default_Loadout_Replacer/",
+   "DownloadLink": "https://northstar.thunderstore.io/package/download/LordVGames/DefaultLoadoutReplacer/",
    "Version": "1.0.0",
    "LoadPriority": 0,
 
