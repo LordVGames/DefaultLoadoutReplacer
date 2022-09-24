@@ -1,17 +1,129 @@
 {
-   "Name": "Example.Mod",
-   "Description": "A cool mod that does cool stuff",
+   "Name": "LordVGames.DefaultLoadoutReplacer",
+   "Description": "Replaces the default loadouts with user-defined ones through cvars. Used to replace the default loadouts when joining a server w/o auth.",
+   "DownloadLink": "https://northstar.thunderstore.io/package/download/LordVGames/Default_Loadout_Replacer/",
    "Version": "1.0.0",
-   "DownloadLink": "https://northstar.thunderstore.io/package/download/Example/Mod/",
-
    "LoadPriority": 0,
-   "ConVars": [],
-   "Scripts": [{
-      "Path": "example.nut",
-      "RunOn": "(CLIENT || SERVER) && MP"
-      "ClientCallback": {
-         "Before":"example_callback"
+
+   "ConVars": [
+      {
+         "Name": "dlr_loadout_1_pilot",
+         "DefaultValue": "Custom Pilot 1,grapple,race_human_male,execution_neck_snap,pas_power_cell,pas_enemy_death_icons,0,0"
+      },
+      {
+         "Name": "dlr_loadout_1_weapons",
+         "DefaultValue": "0,mp_weapon_rspn101, , , , ,mp_weapon_autopistol, , , ,mp_weapon_defender, , , ,mp_weapon_frag_grenade,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_2_pilot",
+         "DefaultValue": "Custom Pilot 2,medium,race_human_female,execution_neck_snap,pas_fast_health_regen,pas_wallhang,0,0"
+      },
+      {
+         "Name": "dlr_loadout_2_weapons",
+         "DefaultValue": "0,mp_weapon_car, , , , ,mp_weapon_autopistol, , , ,mp_weapon_mgl, , , ,mp_weapon_grenade_emp,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_3_pilot",
+         "DefaultValue": "Custom Pilot 3,grapple,race_human_female,execution_neck_snap,pas_fast_health_regen,pas_enemy_death_icons,0,0"
+      },
+      {
+         "Name": "dlr_loadout_3_weapons",
+         "DefaultValue": "0,mp_weapon_lmg, , , , ,mp_weapon_autopistol, , , ,mp_weapon_defender, , , ,mp_weapon_thermite_grenade,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_4_pilot",
+         "DefaultValue": "Custom Pilot 4,medium,race_human_male,execution_neck_snap,pas_power_cell,pas_wallhang,0,0"
+      },
+      {
+         "Name": "dlr_loadout_4_weapons",
+         "DefaultValue": "0,mp_weapon_shotgun, , , , ,mp_weapon_autopistol, , , ,mp_weapon_defender, , , ,mp_weapon_frag_grenade,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_5_pilot",
+         "DefaultValue": "Custom Pilot 5,geist,race_human_female,execution_neck_snap,pas_power_cell,pas_enemy_death_icons,0,0"
+      },
+      {
+         "Name": "dlr_loadout_5_weapons",
+         "DefaultValue": "0,mp_weapon_sniper, , , , ,mp_weapon_autopistol, , , ,mp_weapon_defender, , , ,mp_weapon_grenade_emp,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_6_pilot",
+         "DefaultValue": "Custom Pilot 6,grapple,race_human_female,execution_neck_snap,pas_fast_health_regen,pas_wallhang,0,0"
+      },
+      {
+         "Name": "dlr_loadout_6_weapons",
+         "DefaultValue": "0,mp_weapon_smr, , , , ,mp_weapon_semipistol, , , ,mp_weapon_defender, , , ,mp_weapon_thermite_grenade,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_7_pilot",
+         "DefaultValue": "Custom Pilot 7,medium,race_human_female,execution_neck_snap,pas_power_cell,pas_enemy_death_icons,0,0"
+      },
+      {
+         "Name": "dlr_loadout_7_weapons",
+         "DefaultValue": "0,mp_weapon_rspn101, , , , ,mp_weapon_autopistol, , , ,mp_weapon_mgl, , , ,mp_weapon_grenade_emp,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_8_pilot",
+         "DefaultValue": "Custom Pilot 8,grapple,race_human_male,execution_neck_snap,pas_fast_health_regen,pas_wallhang,0,0"
+      },
+      {
+         "Name": "dlr_loadout_8_weapons",
+         "DefaultValue": "0,mp_weapon_car, , , , ,mp_weapon_autopistol, , , ,mp_weapon_defender, , , ,mp_weapon_thermite_grenade,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_9_pilot",
+         "DefaultValue": "Custom Pilot 9,grapple,race_human_male,execution_neck_snap,pas_power_cell,pas_enemy_death_icons,0,0"
+      },
+      {
+         "Name": "dlr_loadout_9_weapons",
+         "DefaultValue": "0,mp_weapon_sniper, , , , ,mp_weapon_semipistol, , , ,mp_weapon_defender, , , ,mp_weapon_frag_grenade,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_10_pilot",
+         "DefaultValue": "Custom Pilot 10,geist,race_human_male,execution_neck_snap,pas_fast_health_regen,pas_wallhang,0,0"
+      },
+      {
+         "Name": "dlr_loadout_10_weapons",
+         "DefaultValue": "0,mp_weapon_smr, , , , ,mp_weapon_autopistol, , , ,mp_weapon_defender, , , ,mp_weapon_grenade_emp,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_ion",
+         "DefaultValue": "pas_enhanced_titan_ai,pas_ion_weapon,pas_bubbleshield,execution_random_0,0,0,0,0,0,0,0,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_scorch",
+         "DefaultValue": "pas_enhanced_titan_ai,pas_scorch_weapon,pas_bubbleshield,execution_random_1,0,0,0,0,0,0,0,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_northstar",
+         "DefaultValue": "pas_enhanced_titan_ai,pas_northstar_weapon,pas_bubbleshield,execution_random_2,0,0,0,0,0,0,0,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_ronin",
+         "DefaultValue": "pas_enhanced_titan_ai,pas_ronin_weapon,pas_bubbleshield,execution_random_3,0,0,0,0,0,0,0,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_tone",
+         "DefaultValue": "pas_enhanced_titan_ai,pas_tone_weapon,pas_bubbleshield,execution_random_4,0,0,0,0,0,0,0,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_legion",
+         "DefaultValue": "pas_enhanced_titan_ai,pas_legion_weapon,pas_bubbleshield,execution_random_5,0,0,0,0,0,0,0,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_monarch",
+         "DefaultValue": "pas_enhanced_titan_ai,pas_vanguard_shield,pas_bubbleshield,execution_random_6,0,0,0,0,0,0,0,0,0,0"
+      },
+      {
+         "Name": "dlr_loadout_monarch_upgrades",
+         "DefaultValue": "pas_vanguard_core1,pas_vanguard_core4,pas_vanguard_core7"
       }
-   }],
-   "Localisation": []
+   ],
+   "Scripts": [{
+      "Path": "dlr.nut",
+      "RunOn": "CLIENT && MP",
+      "ClientCallback": {
+         "After":"dlr_init"
+      }
+   }]
 }
