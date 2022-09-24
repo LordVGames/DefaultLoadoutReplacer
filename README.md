@@ -9,17 +9,21 @@ There are 2 ConVars for each pilot loadout, one for properties for the pilot the
 
 #### Examples
 ```
-dlr_loadout_10_pilot "Custom Pilot 10,geist,race_human_male,execution_neck_snap,pas_fast_health_regen,pas_wallhang,0,0"
+dlr_loadout_10_pilot "Custom Pilot 10,geist,race_human_male,execution_neck_snap,pas_fast_health_regen,pas_wallhang,0,0,0"
 dlr_loadout_10_weapons "0,mp_weapon_smr, , , , ,mp_weapon_autopistol, , , ,mp_weapon_defender, , , ,mp_weapon_grenade_emp,0,0,0"
 ```
 
 #### ConVar Values
+
+##### Pilot
 The properties for the `_pilot` ConVars are layed out as follows:
 
 `name, race, execution, passive1, passive2, passive3, camoIndex`
 
 This ConVar can't have spaces for the properties.
 
+
+##### Weapons
 The properties for the `_weapons` ConVars are layed out as follows:
 
 `swapPistolAndWeapon3Slots, primary, primaryAttachment, primaryMod1, primaryMod2, primaryMod3, secondary, secondaryMod1, secondaryMod2, secondaryMod3, weapon3, weapon3Mod1, weapon3Mod2, weapon3Mod3, ordnance, primaryCamoIndex, secondaryCamoIndex, weapon3CamoIndex`
