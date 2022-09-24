@@ -22,7 +22,7 @@ This ConVar can't have spaces for the properties.
 
 The properties for the `_weapons` ConVars are layed out as follows:
 
-`primary, primaryAttachment, primaryMod1, primaryMod2, primaryMod3, secondary, secondaryMod1, secondaryMod2, secondaryMod3, weapon3, weapon3Mod1, weapon3Mod2, weapon3Mod3, ordnance, primaryCamoIndex, secondaryCamoIndex, weapon3CamoIndex`
+`swapPistolAndWeapon3Slots, primary, primaryAttachment, primaryMod1, primaryMod2, primaryMod3, secondary, secondaryMod1, secondaryMod2, secondaryMod3, weapon3, weapon3Mod1, weapon3Mod2, weapon3Mod3, ordnance, primaryCamoIndex, secondaryCamoIndex, weapon3CamoIndex`
 
 Note that the weapon mod properties can be just a space if not desired for a weapon.
 
