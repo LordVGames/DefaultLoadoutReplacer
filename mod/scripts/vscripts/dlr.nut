@@ -175,7 +175,8 @@ void function CheckdefaultLoadouts(entity player)
             break
         }
 
-        if (dlr_cvar_weapons[j] != "" && dlr_cvar_weapons[j] != " ") {
+        if (dlr_cvar_weapons[j] != "" && dlr_cvar_weapons[j] != " ")
+        {
           if (j == 0 && dlr_cvar_weapons[j].tointeger() >= 1)
           {
             //print("SWAPPING SECONDARY AND WEAPON3")
@@ -186,7 +187,7 @@ void function CheckdefaultLoadouts(entity player)
             //printt("SETTING VALUE \"" + curProperty + "\" TO \"" + dlr_cvar_weapons[j] + "\"")
 
             player.ClientCommand("SetPersistentLoadoutValue pilot " + curDefaultLoadoutID + " " + curProperty + " " + dlr_cvar_weapons[j])
-            //skinIndex needs to be set AFTER camo index
+            // skinIndex needs to be set AFTER camo index
             switch (j)
             {
               case 15:
@@ -208,7 +209,7 @@ void function CheckdefaultLoadouts(entity player)
       if ((defaultLoadoutCount - 1) != i)
         printt("Changing default loadout " + (curDefaultLoadoutNum + 1) + " in 2.5 seconds...")
       else print("Checking titan loadouts in 2.5 seconds...")
-      wait 2.5 //should keep us from getting disconnected for too many commands
+      wait 2.5 // Should keep us from getting disconnected for too many commands
     }
   }
   //#endregion
@@ -223,7 +224,7 @@ void function CheckdefaultLoadouts(entity player)
   {
     isMonarch = (i == 6)
 
-    // Check titan properties, and skip if they aren't default (it means the player has changed them, so we shouldn't mess with it)
+    // Check titan properties, and skip the loadout if one of the values aren't the default (it means the player has changed them, so we shouldn't mess with it)
     if (
       // Properties for all titans
       GetPersistentLoadoutValue(player, "titan", i, "passive1") != "pas_enhanced_titan_ai" ||
@@ -329,8 +330,10 @@ void function CheckdefaultLoadouts(entity player)
         if (GetPersistentLoadoutValue(player, "titan", i, curProperty) != dlr_cvar_titan[j])
         {
           //printt("SETTING \"" + curProperty + "\" TO \"" + dlr_cvar_titan[j] + "\"")
+
           player.ClientCommand("SetPersistentLoadoutValue titan " + i + " " + curProperty + " " + dlr_cvar_titan[j])
-          if (j == 7) player.ClientCommand("SetPersistentLoadoutValue titan " + i + " primarySkinIndex 1")
+          // primarySkinIndex is always 1 if primaryCamoIndex isn't 0
+          if (j == 7 && dlr_cvar_titan[j] != "0") player.ClientCommand("SetPersistentLoadoutValue titan " + i + " primarySkinIndex 1")
         }
         //else printt("PROPERTY " + curProperty + "IS THE SAME AS IN THE CVAR, SKIPPING")
       }
@@ -352,7 +355,8 @@ void function CheckdefaultLoadouts(entity player)
               curProperty = "passive6"
               break
           }
-          if (GetPersistentLoadoutValue(player, "titan", i, curProperty) != dlr_cvar_monarch_upgrades[k]) {
+          if (GetPersistentLoadoutValue(player, "titan", i, curProperty) != dlr_cvar_monarch_upgrades[k])
+          {
             //printt("SETTING \"" + curProperty + "\" TO \"" + dlr_cvar_monarch_upgrades[k] + "\"")
             player.ClientCommand("SetPersistentLoadoutValue titan " + i + " " + curProperty + " " + dlr_cvar_monarch_upgrades[k])
           }
@@ -360,7 +364,7 @@ void function CheckdefaultLoadouts(entity player)
         }
       }
 
-      if (i + 1 != 7)
+      if (i + 1 != 7) // If we haven't reached the last titan loadout yet
       {
         printt("The titan loadout for \"" + curTitanClass_proper + "\" should be changed. Waiting 2.5 seconds before checking the next loadout...")
         wait 2.5
@@ -371,7 +375,7 @@ void function CheckdefaultLoadouts(entity player)
   //#endregion
 }
 
-//i can't uppercase a single letter of a string like in other languages so i gotta do this
+// I can't uppercase a single letter of a string like in other languages so i gotta do this
 string function UppercaseFirstLetterInString(string text)
 {
   string text_letter = text.slice(0,1)
