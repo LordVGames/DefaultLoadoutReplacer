@@ -9,7 +9,7 @@ There are 2 ConVars for each pilot loadout, one for properties for the pilot the
 
 #### Examples
 ```
-dlr_loadout_10_pilot "Custom Pilot 10,geist,race_human_male,execution_neck_snap,pas_fast_health_regen,pas_wallhang,0,0"
+dlr_loadout_10_pilot "Custom Pilot 10,geist,race_human_male,execution_neck_snap,pas_fast_health_regen,pas_wallhang,0,0,0"
 dlr_loadout_10_weapons "0,mp_weapon_smr, , , , ,mp_weapon_autopistol, , , ,mp_weapon_defender, , , ,mp_weapon_grenade_emp,0,0,0"
 ```
 
