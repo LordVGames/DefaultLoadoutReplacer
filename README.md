@@ -14,12 +14,16 @@ dlr_loadout_10_weapons "0,mp_weapon_smr, , , , ,mp_weapon_autopistol, , , ,mp_we
 ```
 
 #### ConVar Values
+
+##### Pilot
 The properties for the `_pilot` ConVars are layed out as follows:
 
 `name, race, execution, passive1, passive2, passive3, camoIndex`
 
 This ConVar can't have spaces for the properties.
 
+
+##### Weapons
 The properties for the `_weapons` ConVars are layed out as follows:
 
 `swapPistolAndWeapon3Slots, primary, primaryAttachment, primaryMod1, primaryMod2, primaryMod3, secondary, secondaryMod1, secondaryMod2, secondaryMod3, weapon3, weapon3Mod1, weapon3Mod2, weapon3Mod3, ordnance, primaryCamoIndex, secondaryCamoIndex, weapon3CamoIndex`
