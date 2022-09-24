@@ -2,7 +2,7 @@
 A mod meant to replace the default pilot/titan loadouts used when joining/creating a server without masterserver auth.
 
 ## Usage
-Loadouts are replaced by providing the values for loadout properties via ConVars. You can get these loadout properties by re-selecting them and seeing in the game console what that value is and what it changed to.
+Loadouts are replaced by providing the values for loadout properties via ConVars. You can get these loadout properties by re-selecting them in-game and reading the game console to find out what that property is and what it changed to.
 
 ### Pilot loadouts
 There are 2 ConVars for each pilot loadout, one for properties for the pilot theirself, and another for the pilot's weapons.
